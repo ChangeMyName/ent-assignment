@@ -1,0 +1,45 @@
+﻿@using newsapp.Models
+@model Category
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="ui one column padd grid">
+    <div class="column">
+        @{
+            Html.RenderPartial("_ArticleBanner", Model.GetLatestEntity(Model.Articles));
+        }
+    </div>
+
+    <div class="wide column ">
+        <h2 class="ui center aligned icon header">
+            <i class="travel icon"></i>
+            <div class="content">
+                @Model.Name
+                <div class="sub header">Everything about @Model.Name</div>
+            </div>
+        </h2>
+    </div>
+    <div class="column">
+        <div class="ui two column grid">
+            <div class="column">
+                @{
+                    Html.RenderPartial("_MainArticle", Model.GetLatestEntity(Model.Articles));
+                }
+            </div>
+            <div class="column">
+                <div class="ui four column grid">
+                    @foreach (Article item in Model.GetEntitiesOlderThan(Model.GetLatestEntity(Model.Articles).PostedOn, Model.Articles))
+                    {
+                        <div class="column">
+                            @{ 
+                                Html.RenderPartial("_ArticleCard", item);
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>    
+    </div>
+    
+</div>

@@ -1,0 +1,51 @@
+﻿@using newsapp.Models
+
+<h4 class="ui top attached red header">
+    @*<img src="/images/icons/plugin.png">*@
+    <div class="content">
+        Latest today
+        <div class="sub header">Top 5 latest news.</div>
+    </div>
+</h4>
+<div></div>
+<div class="ui red attached segment">
+
+    <div class="carousel">
+        @foreach (Article item in Model)
+            {
+            <div class="ui items">
+                <div class="item">
+                    <div class="ui small rounded image">
+                        <img src="@item.Image" alt="">
+                    </div>
+                    <div class="content">
+                        <h3 class="header">
+                            @item.Header
+                            <div class="sub header">@item.SubHeader</div>
+                        </h3>
+                        <div class="meta">
+                            <span>Description</span>
+                        </div>
+                        <div class="description">
+                            <p>@item.Description</p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui teal image label" style="">
+                                <img src="~/Content/Images/me.jpg" />
+                                @item.Journalist.FirstName
+                                <div class="detail">Author</div>
+
+                            </a>
+                            <div class="ui right floated primary button">
+                                Read more...
+                                <i class="ui right angle icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

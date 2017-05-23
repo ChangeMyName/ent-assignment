@@ -1,0 +1,68 @@
+﻿@model IEnumerable<newsapp.Models.Journalist>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th colspan="4">
+                Registered Journalists
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayName("Full Name")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <h4 class="ui image header">
+                    <img class="ui mini circular image" src="@item.Image" />
+                    <div class="content">
+                        @item.FirstName @item.LastName
+                        <div class="sub header">
+                            @Html.DisplayFor(modelItem => item.Account.Username)
+                        </div>
+                    </div>
+                </h4>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Update", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Read", new { id = item.Id }) |
+                @using (Html.BeginForm("Delete", "Journalists", new { id = item.Id }, FormMethod.Post))
+                {
+                    <input type="submit" value="Delete" class="tiny ui button"/>
+                }
+            </td>
+        </tr>
+    }
+
+    </tbody>
+
+</table>

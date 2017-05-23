@@ -1,0 +1,33 @@
+﻿<nav class="ui container">
+    <div class="ui grid">
+        <div class="center aligned row" style="padding-top:20px;">
+            <div class="column">
+                <h3 class="ui header">
+                    <img class="ui image" src="~/Content/Images/clock.png">
+                    <div class="content title" style="padding-left:0px; padding-top:2px;">
+                        These Are The Times
+                    </div>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="wide column">
+                <div class="ui secondary pointing menu">
+                    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "item orange active" })
+                    @Html.ActionLink("National", "Read", "Categories", new { name = "National" }, new { @class = "item red" })
+                    @Html.ActionLink("Politics", "Read", "Categories", new { name = "Politics" }, new { @class = "item teal" })
+                    @Html.ActionLink("Overseas", "Read", "Categories", new { name = "Overseas" }, new { @class = "item green" })
+                    @Html.ActionLink("Sports", "Read", "Categories", new { name = "Sports" }, new { @class = "item blue" })
+                    @Html.ActionLink("Opinion", "Read", "Categories", new { name = "Opinion" }, new { @class = "item yellow" })
+                    @Html.ActionLink("Travel", "Read", "Categories", new { name = "Travel" }, new { @class = "item purple" })
+                    @Html.ActionLink("Odd", "Read", "Categories", new { name = "Odd" }, new { @class = "item violet" })
+                    <div class="right menu">
+                        @{
+                            Html.RenderPartial("_UserDropdown");
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

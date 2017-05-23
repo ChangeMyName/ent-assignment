@@ -1,0 +1,31 @@
+﻿@using newsapp.Models
+@model Article
+
+<div class="ui items">
+    <div class="item">
+        <div class="ui image">
+            @{ 
+                Html.RenderPartial("_ArticleCard", Model);
+            }
+        </div>
+        <div class="content">
+            <h3 class="header">
+                @Model.Header
+                <div class="sub header">@Model.SubHeader</div>
+            </h3>
+            <div class="meta">
+                <span class="description">Description</span>
+            </div>
+            <div class="description">
+                <p>@Model.Description</p>
+            </div>
+            <div class="extra content">
+                <a class="ui teal image label" style="">
+                    <img src="~/Content/Images/me.jpg" />
+                    @Model.Journalist.FirstName
+                    <div class="detail">Author</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

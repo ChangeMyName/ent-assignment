@@ -1,0 +1,51 @@
+﻿@using newsapp.Models
+
+@model IEnumerable<Category>
+<div class="ui one column padded grid">
+    <div class="eight wide column">
+        @{
+            List<Article> articles = new List<Article>();
+            Model.ToList().ForEach(x => articles.AddRange(x.Articles));
+            Html.RenderPartial("_NewsSlider", articles);
+        }
+    </div>
+    <div class="column">
+        @foreach (Category category in Model)
+        {
+            if (category.Articles.Count() == 0) { continue; }
+            <div class="ui two column  grid">
+                <div>
+                    <h4 class="ui horizontal divider header">
+                        <i class="tag icon"></i>
+                        @category.Name
+                    </h4>
+                </div>
+                <div class="nine wide column">
+                    @{ 
+                        Html.RenderPartial("_MainArticle", category.GetLatestEntity(category.Articles));
+                    }
+                </div>
+                <div class="six wide column">
+                    <div class="ui four column grid ">
+                        @foreach (Article article in category.GetEntitiesOlderThan(category.GetLatestEntity(category.Articles).PostedOn, category.Articles))
+                        {
+                            <div class="column card">
+                                <div class="">
+                                    <img class="ui custom small image" src="@article.Image">
+                                </div>
+                                <div class="ui custom popup top left transition hidden">
+                                    @{ 
+                                        Html.RenderPartial("_ArticleCard", article);
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+</div>

@@ -1,0 +1,37 @@
+﻿@using newsapp.Models
+@using newsapp.Core.Security.Authentication
+<div class="ui dropdown item">
+    <div>
+        <i class="user icon"></i>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @(Authentication<Account>.User.Owner.FirstName + " " + Authentication<Account>.User.Owner.LastName)
+        }
+    </div>
+    <div class="menu">
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="item">
+                <i class="add user icon"></i>
+                @Html.ActionLink("Register", "Register", "Accounts")
+            </div>
+            <div class="item">
+                <i class="sign in icon"></i>
+                @Html.ActionLink("Login", "Login", "Accounts")
+            </div>
+        }
+        else
+        {
+            <div class="item">
+                <i class="add icon"></i>
+                @Html.ActionLink("New Article", "Create", "Articles")
+            </div>
+            <div class="item">
+                <i class="sign out icon"></i>
+                @Html.ActionLink("Logout", "Logout", "Accounts")
+            </div>
+        }
+    </div>
+</div>
+

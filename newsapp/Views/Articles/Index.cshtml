@@ -1,0 +1,90 @@
+﻿@model IEnumerable<newsapp.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Journalist.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Header)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubHeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Views)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Journalist.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Header)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubHeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Views)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Read", new { id = item.Id }) |
+            @using (Html.BeginForm("Delete", "Articles", new { id = item.Id }, FormMethod.Post))
+            {
+                <input type="submit" value="Delete" class="tiny ui button" />
+            }
+        </td>
+    </tr>
+}
+
+</table>

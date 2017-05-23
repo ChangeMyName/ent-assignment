@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/node_modules/semantic-ui/dist/semantic.min.css" rel="stylesheet" />
+    <link href="~/node_modules/slick-carousel/slick/slick.css" rel="stylesheet" />
+    <link href="~/node_modules/slick-carousel/slick/slick-theme.css" rel="stylesheet" />
+    <link href="~/node_modules/sweetalert/dist/sweetalert.css" rel="stylesheet" />
+    <link href="~/Content/Mallanna/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/Playball/stylesheet.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    @{
+        Html.RenderPartial("_NavPartial");
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/semantic-ui/dist/semantic.min.js"></script>
+    <script src="~/node_modules/slick-carousel/slick/slick.min.js"></script>
+    <script src="~/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/app/init.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.carousel').slick({
+            dots: true,
+            speed: 350,
+            arrows: false,
+            slidesToShow: 1,
+        });
+      });
+    </script>
+</body>
+</html>
