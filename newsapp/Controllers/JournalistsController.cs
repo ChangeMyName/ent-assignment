@@ -10,13 +10,13 @@ using newsapp.Data.Entity;
 
 namespace newsapp.Controllers
 {
+    [Authorize]
     public class JournalistsController : CRUDController<Journalist, IRepository>
     {
         public JournalistsController(IRepository repo) : base(repo)
         {
 
         }
-
 
         [HttpGet]
         public override ActionResult Index()

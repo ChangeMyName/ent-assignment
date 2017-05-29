@@ -15,6 +15,7 @@ namespace newsapp.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Display(Name="Category")]
         public string Name { get; set; }
         public virtual ICollection<Article> Articles { get; set; }
 

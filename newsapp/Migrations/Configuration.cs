@@ -57,7 +57,8 @@ namespace newsapp.Migrations
                     CategoryId = 2,
                     JournalistId = 2,
                     CountryId = 2,
-                    PostedOn = DateTime.Parse("2017-01-01")
+                    PostedOn = DateTime.Parse("2017-01-01"),
+                    IsBreakingNews = true
                 },
                 new Article()
                 {

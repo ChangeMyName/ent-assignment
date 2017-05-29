@@ -1,0 +1,19 @@
+﻿@using newsapp.Models
+@model Article
+<div class="ui mini error icon message">
+    <i class="close icon"></i>
+    <i class="warning circle icon"></i>
+    <div class="content">
+        <div class="header">
+            BREAKING NEWS
+        </div>
+        <div>
+            <h4 class="ui header">
+                @Model.Header
+            </h4>
+            <p>@Model.Description</p>
+        </div>
+
+    </div>
+
+</div>

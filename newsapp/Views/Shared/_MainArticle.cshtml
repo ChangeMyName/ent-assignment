@@ -18,10 +18,12 @@
             </div>
             <div class="description">
                 <p>@Model.Description</p>
+
+                @Html.ActionLink("Go to author's page...", "Read", "Authors", new { fullname = Model.Journalist.FirstName + Model.Journalist.LastName }, null)
             </div>
             <div class="extra content">
-                <a class="ui teal image label" style="">
-                    <img src="~/Content/Images/me.jpg" />
+                <a class="ui teal image label">
+                    <img src="@Model.Journalist.Image" />
                     @Model.Journalist.FirstName
                     <div class="detail">Author</div>
                 </a>

@@ -29,4 +29,12 @@ $('.column.card').each(function () {
 $('.ui.dropdown.item')
   .dropdown({
       maxSelections: 3
-  })
+  });
+
+$('.message .close')
+  .on('click', function () {
+      $(this)
+        .closest('.message')
+        .transition('fade')
+      ;
+  });

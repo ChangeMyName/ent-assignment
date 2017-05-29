@@ -11,10 +11,12 @@ namespace newsapp.Models
 
         [Required(ErrorMessage = "This field is required"),
          StringLength(maximumLength: 16, MinimumLength = 2, ErrorMessage = "First name must be between 2 and 16 characters long")]
+        [Display(Name = "First name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "This field is required"),
          StringLength(maximumLength: 16, MinimumLength = 2, ErrorMessage = "Last name must be between 2 and 16 characters long")]
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
         
         [Required(ErrorMessage = "This field is required"),

@@ -34,6 +34,8 @@ namespace newsapp.Models
         [Required, DataType(DataType.DateTime)]
         public DateTime PostedOn { get; set; }
 
+        public bool IsBreakingNews { get; set; }
+
         public int Views { get; set; }
 
         public int CountryId { get; set; }

@@ -36,8 +36,8 @@
                                 <div class="detail">Author</div>
 
                             </a>
-                            <div class="ui right floated primary button">
-                                Read more...
+                            <div class="ui right floated button" style="color: white">
+                                @Html.ActionLink("Take me there...", "Read", "Articles", new { id = item.Id }, null)
                                 <i class="ui right angle icon"></i>
                             </div>
                         </div>

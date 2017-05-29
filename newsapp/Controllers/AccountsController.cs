@@ -10,7 +10,6 @@ using System.Web.Security;
 
 namespace newsapp.Controllers
 {
-
     public class AccountsController : CRUDController<Account, IRepository>
     {
         public AccountsController(IRepository repo, IAuthManager auth) : base(repo, auth)

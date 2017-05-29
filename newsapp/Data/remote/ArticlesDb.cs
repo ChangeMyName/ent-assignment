@@ -16,7 +16,7 @@ namespace newsapp.Data
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
 
-        public ArticlesDb() : base("ArticlesDb")
+        public ArticlesDb() : base("EvgenyEnterpriseDB")
         {
         }
 

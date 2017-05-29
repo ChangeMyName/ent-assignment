@@ -17,6 +17,8 @@ namespace newsapp.Controllers
         public ActionResult Read(string name)
         {
             Category model = Repo.GetEntity<Category>(x => x.Name == name);
+            if (model == null) return PartialView("_NoArticles");
+            if (model.Articles == null || model.Articles.Count == 0) return PartialView("_NoArticles");
             return View(model);
         }
 

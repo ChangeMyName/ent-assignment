@@ -10,7 +10,10 @@
                         <h3 class="ui green header">
                             @Model.Header
                         </h3>
-                        <div class="ui green small button">Take me there...</div>
+                        <div class="ui green small button">
+                            @Html.ActionLink("Take me there...", "Read", "Articles", new { id=Model.Id }, null)
+                        </div>
+                        @Html.ActionLink(Model.Journalist.FirstName+ " " + Model.Journalist.LastName, "Read", "Authors", new { fullname = Model.Journalist.FirstName + Model.Journalist.LastName }, null)
                     </div>
                 </div>
             </div>

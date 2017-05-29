@@ -26,9 +26,6 @@ namespace newsapp.Controllers
         [HttpGet]
         public override ActionResult Index()
         {
-            
-            //ViewData.Add("Countries", (IEnumerable<Country>)countries);
-            //ViewData.Add("Categories", (IEnumerable<Category>)categories);
             return base.Index();
         }
 
@@ -48,6 +45,7 @@ namespace newsapp.Controllers
             return base.Create(model);
         }
 
+        [AllowAnonymous]
         public override ActionResult Read(int id)
         {
             return base.Read(id);
@@ -68,11 +66,17 @@ namespace newsapp.Controllers
             return base.Update(model);
         }
 
-
         [HttpPost]
         public override ActionResult Delete(int id)
         {
             return base.Delete(id);
+        }
+
+        [AllowAnonymous]
+        public ActionResult BreakingNews()
+        {
+            Article model = Repo.GetEntity<Article>(x => x.IsBreakingNews == true);
+            return PartialView("_BreakingNews", model);
         }
     }
 }

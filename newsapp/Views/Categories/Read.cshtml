@@ -5,11 +5,11 @@
 }
 
 <div class="ui one column padd grid">
-    <div class="column">
+    @*<div class="column">
         @{
             Html.RenderPartial("_ArticleBanner", Model.GetLatestEntity(Model.Articles));
         }
-    </div>
+    </div>*@
 
     <div class="wide column ">
         <h2 class="ui center aligned icon header">
@@ -31,11 +31,21 @@
                 <div class="ui four column grid">
                     @foreach (Article item in Model.GetEntitiesOlderThan(Model.GetLatestEntity(Model.Articles).PostedOn, Model.Articles))
                     {
-                        <div class="column">
+                        <div class="column card">
+                            <div class="">
+                                <img class="ui custom small image" src="@item.Image">
+                            </div>
+                            <div class="ui custom popup top left transition hidden">
+                                @{
+                                    Html.RenderPartial("_ArticleCard", item);
+                                }
+                            </div>
+                        </div>
+                        @*<div class="column">
                             @{ 
                                 Html.RenderPartial("_ArticleCard", item);
                             }
-                        </div>
+                        </div>*@
                     }
                 </div>
             </div>
